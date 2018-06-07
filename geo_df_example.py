@@ -154,6 +154,9 @@ def get_reign(url):
 
 def main():
 
+    ## Just an example with REIGN data.
+    ## If using your own data frame, just comment out next line, and put your own file as df.
+
     reign = get_reign('https://oefdatascience.github.io/REIGN.github.io/menu/reign_current.html')
     df = pd.read_csv(reign)
     df = collapse(df, 'year')
@@ -162,33 +165,8 @@ def main():
 
     reign_2018 = named_df[named_df.date == '2018-01-01']
     reign_1970 = named_df[named_df.date == '1970-01-01']
-
     reign_2018.plot(column='age', legend=True, vmin=20, vmax=90)
     reign_1970.plot(column='age', legend=True, vmin=20, vmax=90)
-
-
-    """
-    Make above maps
-
-    The below commands will make gif, as long as the only .png 's in working folder
-    are the maps created.
-
-    """
-
-
-    """
-    image_dir = os.getcwdb()
-
-    print('Creating GIF...')
-    image_files = get_image_files(image_dir, '', shortened=0)
-    image_list = []
-    for f in image_files:
-        image = imageio.imread(os.path.join(image_dir, f))
-        image_list.append(image)
-    imageio.mimsave(os.path.join(image_dir, 'animation' + '.gif'), image_list, format='GIF', duration=1/fps)
-
-    """
-
 
 
     return named_df
