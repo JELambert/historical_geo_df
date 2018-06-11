@@ -1,5 +1,5 @@
-# global_map_gif
-Constructing a longitudinal global GeoDataFrame.
+# historical_geo_df
+Constructing a longitudinal cross-sectional global GeoDataFrame.
 
 
 Be sure you have a pandas datetime column, as well as cowcode identifier named 'ccode'.
